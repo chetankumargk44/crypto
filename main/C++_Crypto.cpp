@@ -10,14 +10,14 @@
 void texttonumber();
 void numbertotext();
 int incompatible=1,i;
-char riteversion[5]="v3.00",site[]="https://drive.google.com/drive/folders/0B4WtzuPF3XojNF9icENvYzdGUFk";
+char riteversion[5]="v3.00",site[]="https://github.com/NirmalK7/crypto";
 void main()
 {
   char ch,repeat='y';
   do
   {
   		clrscr();
-      cout<<"\nCryptographer v3.01 by NirmalK7";
+      cout<<"\nCrypto v3.01 by NirmalK7";
   		cout<<"\nThis is a cryptograph program.";
       cout<<"\nEnter:-";
       cout<<"\n \t 1 if you want to convert number to text.";
