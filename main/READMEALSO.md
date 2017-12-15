@@ -1,3 +1,6 @@
+# Execution
+The program does *not* have a GUI interface. It runs on a Command Prompt like screen.
+
 # Example
 Encrypted text:
 `534.554.566.471.550.549.558.463.558.543.497.494.574.535.545.532.575.457.580.518.594.1049.3`
