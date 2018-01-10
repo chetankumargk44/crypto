@@ -7,29 +7,82 @@
 #include<stdlib.h>
 #include<windows.h>
 #include<math.h>
-void texttonumber();
-void numbertotext();
+void texttonumber(int);
+void numbertotext(int);
 int incompatible=1,i;
-char riteversion[5]="v3.00",site[]="https://github.com/NirmalK7/crypto";
+char riteversion[5]="v4.01";
+//Negate the number (just in case)
+int modulus(int nos)
+{
+	if(nos<0)
+   {
+   	nos*=-1;
+   }
+   return nos;
+}
+//Forms the Diffie Hellman Keygen
+int dhm_keygen()
+{
+	randomize();
+   int usernos,silverkey,p,g,goldenkey;
+   cout<<"Do you have the security number and security passkey?\nEnter 1 for no and 0 for yes.";
+   int choice1;
+   cin>>choice1;
+   do
+   {
+   	if(choice1==1)
+	   {
+   	   cout<<"\nAlright, we'l generate one for you.";
+      	g=random(5)+4;
+	      //This mechanism would find a prime number p
+   	   int primenos[25]={2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97};
+      	p=primenos[random(25)];
+	      cout<<"\nYour security number is: "<<p<<" and security passkey is "<<g;
+   	}
+	   else if(choice1==0)
+   	{
+      	cout<<"\nEnter security number:";
+	   	cin>>p;
+   	   cout<<"\nEnter security passkey:";
+      	cin>>g;
+	   }
+   	else
+	   {
+      	cerr<<"\nERROR. Invalid Input";
+      }
+   }while((choice1!=1)&&(choice1!=0));
+   usernos=random(7)+4;
+   silverkey=modulus(fmod(pow(g,usernos),p));
+   cout<<"\n Your Silver Key is "<<silverkey;
+   cout<<"\nShare these details with your counterpart.";
+   cout<<"\nEnter your counterparts Silver Key?:";
+   cin>>silverkey;
+   goldenkey=modulus(fmod(pow(silverkey,usernos),p));
+   cout<<"\nOkay, we're set for encryption/decryption.";
+   return(goldenkey);
+}
+//Void Main begins
 void main()
 {
-  char ch,repeat='y';
+  char ch,repeat='y';int goldenkey;
+  cout<<"\nCrypto "<<riteversion<<" by NK7";
+  cout<<"\nThis is a cryptograph program. Before you encrypt your message, ";
+  goldenkey=dhm_keygen();
   do
   {
   		clrscr();
-      cout<<"\nCrypto v3.01 by NirmalK7";
-  		cout<<"\nThis is a cryptograph program.";
+
       cout<<"\nEnter:-";
       cout<<"\n \t 1 if you want to convert number to text.";
       cout<<"\n \t 2 if you want to convert text into number.\n";
   		cin>>ch;
      	if(ch==50)
      	{
-        texttonumber();
+        texttonumber(goldenkey);
      	}
     	else if(ch==49)
      	{
-          numbertotext();
+          numbertotext(goldenkey);
       }
       else
       {
@@ -54,55 +107,36 @@ void main()
  exit(0);
   getch();
 }
-//--------------------------------TEXT TO NUMBER--------------------------------------
-void texttonumber()
+//Text to Number
+void texttonumber(int goldenkey)
 {
-  	int tsum=0,output;
-  	char input[100],data[16];
-   cout<<"\nEnter your name:";
-   cin>>data;
-   for(i=0;data[i]!='\0';i++)
-   {
-      tsum+=data[i];
-  	}
-	cout<<"\n";
-   randomize();
+  	int output;
+  	char input[100];
+  	randomize();
 	cout<<"\nText to number. Sweet.";
 	cout<<"\nEnter your text (max 100 characters) - \n";
  	gets(input);
    int randomnos,addingfactor;
-   randomnos=random(1000)+100;
+   randomnos=random(1000);
+   addingfactor=randomnos+100;
    clrscr();
   	cout<<"\nOUTPUT \n--\n";
  	for(int i=0;input[i]!='\0';i++)
  	{
 		output=input[i]+(pow(-1,i)*2*i);
-    	cout<<(output+randomnos)<<".";
+    	cout<<(output+addingfactor)<<".";
   	}
 
-   randomnos+=(tsum);
-	cout<<(randomnos-7)<<"."<<riteversion[1]<<"\n--";
+   addingfactor+=(goldenkey);
+	cout<<"\b."<<(addingfactor-7)<<"."<<riteversion[1]<<"\n--";
 	return;
 }
-//-----------------------------------------NUMBER TO TEXT-----------------------------
-void numbertotext()
+//Number to Text
+void numbertotext(int goldenkey)
 {
-	char input2[500],sendername[10];
-  	int i,num[100],tsum=0;
+	char input2[500];
+  	int i,num[100];
   	cout<<"\nNumber to text. Sweet.";
-   for(i=0;i<10;i++)
-   {
-   	sendername[i]='\0';
-   }
-   errorA:
-   cout<<"\nEnter the sender's name:- ";
-   gets(sendername);
-   clrscr();
-   cout<<endl;
-   for(i=0;sendername[i]!='\0';i++)
-   {
-     	tsum+=sendername[i];
-   }
    cout<<"\nEnter your number here:- \n";
    error1:
   	gets(input2);
@@ -122,18 +156,18 @@ void numbertotext()
   	{
   		num[i]='\0';
   	}
-  	int k=0,negativenos=0;
+  	int k=0;
   	for(i=0;input2[i]!='\0';i++)
   	{
-     //cout<<"\n input2["<<i<<"]="<<input2[i];
      if(input2[i]=='.')
   	  {
      		++k;
      }
      else
-     {
-     		num[k]=(num[k]*10)+input2[i]-48; //-48 is to convert the decimal "6" into human 6.
-     }
+     	{
+     		num[k]=(num[k]*10)+input2[i]-48; //48 is to convert the decimal "6" into human 6.
+   	   //cout<<"\n num["<<k<<"]="<<num[k]<<endl;
+     	}
   	}
   clrscr();
   cout<<"\nOUTPUT\n--\n";
@@ -142,24 +176,13 @@ void numbertotext()
   {
   		if((num[i+2]==0)&&(num[i+1]!=0))
       {
-         subtractingfactor=num[i]-tsum+7;
-         if(num[i+1]-(riteversion[1]-48)>=1)
-      	{
-      		cout<<"\nSorry, the code conversion cannot be done by this program of version ";
-         	puts(riteversion);
-         	cout<<"\nApologies for the inconvienience. Enter any key to open the link.";
-            for(int w=0;w<999999999;w++);
-         	ShellExecute(NULL, "open", site ,NULL, NULL, SW_SHOWNORMAL);
-            clrscr();
-            cout<<"TERMINATING. Cryptographer ";
-            puts(riteversion);
-            cout<<" by NirmalK7.\nThe app is by all means, peaceful, and is an experimental coding project by our team thats all.";
-            getch();
-            exit(0);
-     		}
+         subtractingfactor=num[i]+7;
       }
    }
 
+  //cout<<"\ntsum="<<goldenkey;
+  subtractingfactor-=(goldenkey);
+  //cout<<"\nSubtracting Factor after goldenkey= "<<subtractingfactor<<"\n";
   for(int k=0;num[k+2]!=0;++k)
   {
 
