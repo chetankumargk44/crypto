@@ -1,14 +1,18 @@
 # The Crypto
 ## About
-The Crypto can be used to send information encrypted. All you need is:- 
+The Crypto can be used to send information encrypted. Before you begin conversation, all you need is:- 
 * Message- either in encrypted or decrypted form.
-* Name of the Sender- Can even be a password of any kind.
+* A Security Number and Security Passkey
+* Your partner's Silver Key.
+
+## What Key?
+On Cranberry (v3.01) edition, anybody who knew the names of the senders and recie
 
 ## Inspiration
 The Movie _The Imitation Game_ ,based on Alan Turing's life.
 
 ## Direction of Improvement
-Right now its a complex Caesar Cipher. I wish to make it work on Diffie Helman Exchange in future.
+Ive not thought of any further improvements yet.
 
 ## Makers
 1. Nirmal Khedkar
