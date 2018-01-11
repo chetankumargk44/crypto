@@ -1,18 +1,28 @@
-# The Crypto
 ## About
-The Crypto can be used to send information encrypted. All you need is:- 
-* Message- either in encrypted or decrypted form.
-* Name of the Sender- Can even be a password of any kind.
+The Crypto can be used to send information encrypted. Before you begin conversation, all you need is:- 
+* A Security Number and Security Passkey
+* Your partner's Silver Key. 
+* Your Silver Key.
+
+## Keys?
+On Cranberry (v3.01) edition, anybody who knew the names of the senders and reciever. This made it possible for a _third_ person to find out your names, crack the encryption and read your messages! Now __there's no need of names!__. Using Crypto will now require 3 keys to be exchanged, and voila! You can begin conversation with an encryption scheme __that nobody can even guess!!__
+
+## How to Use
+1. Get a Security Number, Security Passkey and Silver Key generated.
+1. Send these to your Partner.
+1. She should directly enter these (she shouldnt generate another pair of Security Keys) in her program.
+1. The Silver Key which she gets should be shared to you.
+1. You enter these in your program.
+1. Voila! Begin the conversation! 
 
 ## Inspiration
 The Movie _The Imitation Game_ ,based on Alan Turing's life.
 
 ## Direction of Improvement
-Right now its a complex Caesar Cipher. I wish to make it work on Diffie Helman Exchange in future.
+I've not thought of any further improvements yet.
 
 ## Makers
 1. Nirmal Khedkar
 
 # Licences
 Only the MIT License. Suggestions/Feedbacks welcomed.
-
