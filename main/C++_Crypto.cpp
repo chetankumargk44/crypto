@@ -9,9 +9,9 @@
 #include<math.h>
 void texttonumber(int);
 void numbertotext(int);
-int incompatible=1,i;
+
 char riteversion[5]="v4.01";
-//Negate the number (just in case)
+
 int modulus(int nos)
 {
 	if(nos<0)
@@ -61,6 +61,7 @@ int dhm_keygen()
    cout<<"\nOkay, we're set for encryption/decryption.";
    return(goldenkey);
 }
+
 //Void Main begins
 void main()
 {
@@ -103,7 +104,7 @@ void main()
   cout<<"\nTERMINATING.Version ";
   puts(riteversion);
   cout<<" NK7 Devs. The app is by all means, peaceful, and is an experimental coding project by our team thats all.";
- // }
+  }
  exit(0);
   getch();
 }
