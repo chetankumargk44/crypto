@@ -16,15 +16,21 @@ On Cranberry (v3.01) edition, anybody who knew the names of the senders and reci
 1. Voila! Begin the conversation! 
 
 ## I want one!
-[Here you go!](https://github.com/NirmalK7/crypto/releases).
+[Here you go!](https://github.com/nirmalhk7/crypto/releases)
+
 ## Inspiration
-The Movie _The Imitation Game_ ,based on Alan Turing's life.
+The Movie _The Imitation Game_ ,based on Alan Turing's life, played by Benedict Cumberbatch and Keira Knightley.
+
+Reference-style: 
+![alt text][logo]
+
+[logo]: http://cdn-static.denofgeek.com/sites/denofgeek/files/styles/main_wide/public/7/89//imitation-game-poster.jpg?itok=J8A4ABiU "The Imitation Game"
 
 ## Direction of Improvement
 I've not thought of any further improvements yet.
 
 ## Makers
-1. Nirmal Khedkar
+Nirmal Khedkar ([@nirmalhk7](www.github.com/nirmalhk7) is the sole maker of this project.
 
 # Licences
-Only the MIT License. Suggestions/Feedbacks welcomed.
+MIT License. Suggestions/Feedbacks welcomed.
