@@ -29,7 +29,7 @@ The Movie _The Imitation Game_ ,based on Alan Turing's life, played by Benedict 
 I've not thought of any further improvements yet.
 
 ## Makers
-Nirmal Khedkar ([@nirmalhk7](www.github.com/nirmalhk7) is the sole maker of this project.
+Nirmal Khedkar ([@nirmalhk7](www.github.com/nirmalhk7)) is the sole maker of this project.
 
 # Licences
 MIT License. Suggestions/Feedbacks welcomed.
