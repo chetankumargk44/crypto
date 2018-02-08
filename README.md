@@ -21,7 +21,6 @@ On Cranberry (v3.01) edition, anybody who knew the names of the senders and reci
 ## Inspiration
 The Movie _The Imitation Game_ ,based on Alan Turing's life, played by Benedict Cumberbatch and Keira Knightley.
 
-Reference-style: 
 ![alt text][logo]
 
 [logo]: http://cdn-static.denofgeek.com/sites/denofgeek/files/styles/main_wide/public/7/89//imitation-game-poster.jpg?itok=J8A4ABiU "The Imitation Game"
